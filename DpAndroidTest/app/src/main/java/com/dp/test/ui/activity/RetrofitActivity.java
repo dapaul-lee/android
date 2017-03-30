@@ -1,149 +1,90 @@
 package com.dp.test.ui.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.dp.test.R;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-
-import java.io.IOException;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import okhttp3.ConnectionPool;
-import okhttp3.Dispatcher;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Url;
 
 public class RetrofitActivity extends AbstractActivity {
 
     private TextView mTvResult;
 
-    private final Set<HttpUrl> fetchedUrls = Collections.synchronizedSet(
-            new LinkedHashSet<HttpUrl>());
-    private final ConcurrentHashMap<String, AtomicInteger> hostnames = new ConcurrentHashMap<>();
-    private PageService pageService;
+    String API_BASE_URL = "https://api.github.com/";
 
+    OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+    Retrofit.Builder builder = new Retrofit.Builder().baseUrl(API_BASE_URL).addConverterFactory(GsonConverterFactory.create());
+
+    Retrofit retrofit = builder.client(httpClient.build()).build();
+
+    GitHubClient client = retrofit.create(GitHubClient.class);
+
+    Call<List<GitHubRepo>> call = client.reposForUser("fs-opensource");
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
-
         mTvResult = (TextView) findViewById(R.id.tv_result);
-        runRetrofit("https://www.baidu.com/");
+        run();
     }
 
-    private void runRetrofit(String url) {
-        Dispatcher dispatcher = new Dispatcher(Executors.newFixedThreadPool(20));
-        dispatcher.setMaxRequests(20);
-        dispatcher.setMaxRequestsPerHost(1);
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .dispatcher(dispatcher)
-                .connectionPool(new ConnectionPool(100, 30, TimeUnit.SECONDS))
-                .build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(HttpUrl.parse("https://example.com/"))
-                .addConverterFactory(PageAdapter.FACTORY)
-                .client(okHttpClient)
-                .build();
-
-        pageService = retrofit.create(PageService.class);
-
-
-        crawlPage(HttpUrl.parse(url));
-    }
-
-    public void crawlPage(HttpUrl url) {
-        // Skip hosts that we've visited many times.
-        AtomicInteger hostnameCount = new AtomicInteger();
-        AtomicInteger previous = hostnames.putIfAbsent(url.host(), hostnameCount);
-        if (previous != null) hostnameCount = previous;
-        if (hostnameCount.incrementAndGet() > 100) return;
-
-        // Asynchronously visit URL.
-        pageService.get(url).enqueue(new Callback<Page>() {
-            @Override public void onResponse(Call<Page> call, Response<Page> response) {
-                if (!response.isSuccessful()) {
-                    System.out.println(call.request().url() + ": failed: " + response.code());
-                    return;
+    private void run() {
+        call.enqueue(new Callback<List<GitHubRepo>>() {
+            @Override
+            public void onResponse(Call<List<GitHubRepo>> call, Response<List<GitHubRepo>> response) {
+                List<GitHubRepo> list = response.body();
+                for (GitHubRepo repo : list) {
+                    Log.i("ljq", "MainActivity ---- run ---- repo.getId : " + repo.getId() + ", repo.getName : " + repo.getName());
                 }
-
-                // Print this page's URL and title.
-                Page page = response.body();
-                HttpUrl base = response.raw().request().url();
-                System.out.println(base + ": " + page.title);
-                mTvResult.setText(page.title);
-
-                // Enqueue its links for visiting.
-                for (String link : page.links) {
-                    HttpUrl linkUrl = base.resolve(link);
-                    if (linkUrl != null && !fetchedUrls.add(linkUrl)) {
-                        crawlPage(linkUrl);
-                    }
+                if (list.size() > 0) {
+                    mTvResult.setText(list.get(0).getName());
                 }
             }
 
-            @Override public void onFailure(Call<Page> call, Throwable t) {
-                System.out.println(call.request().url() + ": failed: " + t);
+            @Override
+            public void onFailure(Call<List<GitHubRepo>> call, Throwable t) {
+
             }
         });
     }
 
-    static class Page {
-        final String title;
-        final List<String> links;
+    public class GitHubRepo {
+        private int id;
+        private String name;
 
-        Page(String title, List<String> links) {
-            this.title = title;
-            this.links = links;
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 
-    interface PageService {
-        @GET
-        Call<Page> get(@Url HttpUrl url);
-    }
-
-    static final class PageAdapter implements Converter<ResponseBody, Page> {
-        static final Converter.Factory FACTORY = new Converter.Factory() {
-            @Override public Converter<ResponseBody, ?> responseBodyConverter(
-                    Type type, Annotation[] annotations, Retrofit retrofit) {
-                if (type == Page.class) return new PageAdapter();
-                return null;
-            }
-        };
-
-        @Override public Page convert(ResponseBody responseBody) throws IOException {
-            Document document = Jsoup.parse(responseBody.string());
-            List<String> links = new ArrayList<>();
-            for (Element element : document.select("a[href]")) {
-                links.add(element.attr("href"));
-            }
-            return new Page(document.title(), Collections.unmodifiableList(links));
-        }
+    public interface GitHubClient {
+        @GET("/users/{user}/repos")
+        Call<List<GitHubRepo>> reposForUser(
+                @Path("user") String user
+        );
     }
 }
