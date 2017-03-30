@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_open_source_project"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,21 +9,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.dp.test.ui.activity.MainActivity">
+    tools:context="com.dp.test.ui.activity.OpenSourceProjectActivity">
 
     <TextView
-        android:id="@+id/android_design_support_library"
+        android:id="@+id/retrofit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:padding="10dp"
-        android:text="Android Design Support Library" />
-
-    <TextView
-        android:id="@+id/open_source_project"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:padding="10dp"
-        android:text="Open Source Project" />
+        android:text="Retrofit" />
 </LinearLayout>
