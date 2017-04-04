@@ -19,6 +19,12 @@ public class OpenSourceProjectActivity extends AbstractActivity {
             case R.id.retrofit:
                 switchToActivity(RetrofitActivity.class);
                 break;
+            case R.id.rxjava:
+                switchToActivity(RxJavaActivity.class);
+                break;
+            case R.id.green_dao:
+                switchToActivity(GreenDAOActivity.class);
+                break;
         }
     }
 }

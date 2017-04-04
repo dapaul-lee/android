@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".app.DpApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,7 +27,9 @@
             android:name=".ui.activity.TabLayoutActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.OpenSourceProjectActivity" />
-        <activity android:name=".ui.activity.RetrofitActivity"></activity>
+        <activity android:name=".ui.activity.RetrofitActivity" />
+        <activity android:name=".ui.activity.RxJavaActivity" />
+        <activity android:name=".ui.activity.GreenDAOActivity"></activity>
     </application>
 
 </manifest>
