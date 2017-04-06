@@ -5,18 +5,18 @@ import android.view.View;
 
 import com.dp.test.R;
 
-public class OpenGLActivity extends AbstractActivity {
+public class NativeComponentActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_open_gl);
+        setContentView(R.layout.activity_native_component);
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.camera2_preview:
-                switchToActivity(OpenGlCamera2PreviewActivity.class);
+            case R.id.pop_window:
+                switchToActivity(PopWindowActivity.class);
                 break;
         }
     }
