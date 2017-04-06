@@ -21,6 +21,9 @@ public class MainActivity extends AbstractActivity {
             case R.id.open_source_project:
                 switchToActivity(OpenSourceProjectActivity.class);
                 break;
+            case R.id.opengl:
+                switchToActivity(OpenGLActivity.class);
+                break;
         }
     }
 }
