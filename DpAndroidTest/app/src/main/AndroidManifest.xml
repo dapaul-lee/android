@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- Wechat Shade -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -39,7 +42,11 @@
         <activity android:name=".ui.activity.OpenGLActivity" />
         <activity android:name=".ui.activity.OpenGlCamera2PreviewActivity" />
         <activity android:name=".ui.activity.NativeComponentActivity" />
-        <activity android:name=".ui.activity.PopWindowActivity"></activity>
+        <activity android:name=".ui.activity.PopWindowActivity" />
+        <activity android:name=".ui.activity.AnimationActivity" />
+        <activity
+            android:name=".ui.activity.WeChatShadeActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

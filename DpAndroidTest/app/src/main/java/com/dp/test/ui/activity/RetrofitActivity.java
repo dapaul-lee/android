@@ -154,7 +154,7 @@ public class RetrofitActivity extends AbstractActivity {
                 Call<ResponseBody> call = mBTKittySearchApi.mainSearch(keyword);
                 try {
                     Response<ResponseBody> bodyResponse = call.execute();
-                    body = bodyResponse.body().string();//获取返回体的字符串
+                    body = bodyResponse.body().string();
                 } catch (IOException e) {
                     DpDebug.log("RetrofixActivity ---- runBTKittySync ---- IOException : " + e.toString());
                     e.printStackTrace();
@@ -193,7 +193,7 @@ public class RetrofitActivity extends AbstractActivity {
                 Call<ResponseBody> call = mBTKittySearchApi.subSearch(url);
                 try {
                     Response<ResponseBody> bodyResponse = call.execute();
-                    body = bodyResponse.body().string();//获取返回体的字符串
+                    body = bodyResponse.body().string();
                 } catch (IOException e) {
                     DpDebug.log("RetrofixActivity ---- runBTKittyGetSync ---- IOException : " + e.toString());
                     e.printStackTrace();

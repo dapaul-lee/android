@@ -27,6 +27,9 @@ public class MainActivity extends AbstractActivity {
             case R.id.opengl:
                 switchToActivity(OpenGLActivity.class);
                 break;
+            case R.id.animation:
+                switchToActivity(AnimationActivity.class);
+                break;
         }
     }
 }
