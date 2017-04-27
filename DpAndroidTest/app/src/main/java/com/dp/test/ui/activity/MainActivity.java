@@ -33,6 +33,9 @@ public class MainActivity extends AbstractActivity {
             case R.id.animation:
                 switchToActivity(AnimationActivity.class);
                 break;
+            case R.id.custom_view:
+                switchToActivity(CustomViewActivity.class);
+                break;
         }
     }
 }

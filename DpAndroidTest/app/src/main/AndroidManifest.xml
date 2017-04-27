@@ -77,6 +77,8 @@
         <activity
             android:name=".ui.activity.GlobalFloatWindowActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.CustomViewActivity" />
+        <activity android:name=".ui.activity.PullToRefreshLayoutActivity"></activity>
     </application>
 
 </manifest>

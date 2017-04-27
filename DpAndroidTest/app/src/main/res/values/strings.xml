@@ -5,4 +5,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="bottom_pop_window_btn_cancel">Cancel</string>
+
+    <string name="pull_to_refresh_layout_listview_footer_loading_text">加载中...</string>
 </resources>

@@ -58,4 +58,12 @@
         android:onClick="onClick"
         android:padding="10dp"
         android:text="Animation" />
+
+    <TextView
+        android:id="@+id/custom_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="Custom View" />
 </LinearLayout>
