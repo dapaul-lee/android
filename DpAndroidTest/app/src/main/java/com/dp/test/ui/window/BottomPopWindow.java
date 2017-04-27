@@ -1,7 +1,5 @@
-package com.dp.test.ui.popwindow;
+package com.dp.test.ui.window;
 
-import android.app.Activity;
-import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.Gravity;
 import android.view.View;
@@ -13,8 +11,6 @@ import android.widget.RelativeLayout;
 
 import com.dp.test.R;
 import com.dp.test.ui.activity.AbstractActivity;
-
-import java.util.List;
 
 /**
  * Created by dapau on 2017/4/6.

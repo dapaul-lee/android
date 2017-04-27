@@ -8,11 +8,14 @@
     <!-- Wechat Shade -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <!-- float window -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
-    <uses-feature android:name="android.hardware.camera2" />
 
+    <!-- <uses-feature android:name="android.hardware.camera2" /> -->
     <application
         android:name=".app.DpApplication"
         android:allowBackup="true"
@@ -35,17 +38,44 @@
         <activity
             android:name=".ui.activity.TabLayoutActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.OpenSourceProjectActivity" />
-        <activity android:name=".ui.activity.RetrofitActivity" />
-        <activity android:name=".ui.activity.RxJavaActivity" />
-        <activity android:name=".ui.activity.GreenDAOActivity" />
-        <activity android:name=".ui.activity.OpenGLActivity" />
-        <activity android:name=".ui.activity.OpenGlCamera2PreviewActivity" />
-        <activity android:name=".ui.activity.NativeComponentActivity" />
-        <activity android:name=".ui.activity.PopWindowActivity" />
-        <activity android:name=".ui.activity.AnimationActivity" />
+        <activity
+            android:name=".ui.activity.OpenSourceProjectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.RetrofitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.RxJavaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.GreenDAOActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OpenGLActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OpenGlCamera2PreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.NativeComponentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PopWindowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AnimationActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.WeChatShadeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AndroidSystemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PermissionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.GlobalFloatWindowActivity"
             android:screenOrientation="portrait" />
     </application>
 

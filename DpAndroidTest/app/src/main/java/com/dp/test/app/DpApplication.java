@@ -18,7 +18,7 @@ public class DpApplication extends Application{
         mInstance = this;
 
         //GreenDAO init
-        GreenDAOHelper.init(this);
+//        GreenDAOHelper.init(this);
     }
 
     public static DpApplication getInstance() {

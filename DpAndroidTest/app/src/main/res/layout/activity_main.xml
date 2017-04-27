@@ -28,6 +28,14 @@
         android:text="Android Native Component" />
 
     <TextView
+        android:id="@+id/android_system"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="Android System" />
+
+    <TextView
         android:id="@+id/open_source_project"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

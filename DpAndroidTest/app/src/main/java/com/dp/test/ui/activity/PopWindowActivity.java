@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dp.test.R;
-import com.dp.test.ui.popwindow.BottomPopWindow;
+import com.dp.test.ui.window.BottomPopWindow;
 import com.dp.test.util.ToastUtil;
 
 public class PopWindowActivity extends AbstractActivity {
