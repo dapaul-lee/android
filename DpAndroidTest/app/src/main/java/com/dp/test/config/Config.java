@@ -1,4 +1,4 @@
-package com.dp.test;
+package com.dp.test.config;
 
 /**
  * Created by dapau on 2017/4/1.

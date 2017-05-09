@@ -12,26 +12,11 @@
     tools:context="com.dp.test.ui.activity.OpenSourceProjectActivity">
 
     <TextView
-        android:id="@+id/retrofit"
+        android:id="@+id/jie_cao_video_player"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:padding="10dp"
-        android:text="Retrofit" />
+        android:text="JieCaoVideoPlayer" />
 
-    <TextView
-        android:id="@+id/rxjava"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:padding="10dp"
-        android:text="RxJava" />
-
-    <TextView
-        android:id="@+id/green_dao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:padding="10dp"
-        android:text="GreenDAO" />
 </LinearLayout>
