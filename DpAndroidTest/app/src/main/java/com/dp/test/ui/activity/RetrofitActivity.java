@@ -31,7 +31,7 @@ public class RetrofitActivity extends AbstractActivity {
 
     String API_BASE_URL = "https://api.github.com/";
 
-    private static final String BTKITTY_URL = "http://btkitty.bid/";
+    private static final String BTKITTY_URL = "http://btkitty.kim/";
 
     OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
@@ -53,10 +53,11 @@ public class RetrofitActivity extends AbstractActivity {
         mTvResult = (TextView) findViewById(R.id.tv_result);
         btKittyInit();
 //        run();
-//        runBTKittyAsync("girl");
+        runBTKittyAsync("东京热");
 //        runBTKittySync("beauty girl");
 //        runBTKittyGetAsync(BTKITTY_URL);
-        runBTKittyGetSync(BTKITTY_URL);
+//        runBTKittyGetSync(BTKITTY_URL);
+//        runBTKittyPostSync();
     }
 
     private void run() {
@@ -109,8 +110,11 @@ public class RetrofitActivity extends AbstractActivity {
 
     public interface BTKittySearchApi {
         @FormUrlEncoded
-        @Headers({"User-Agent:Mozilla"})
-        @POST("http://btkitty.bid/")
+        @Headers({"User-Agent:Mozilla",
+                "Content-Type: application/x-www-form-urlencoded",
+                "Cache-Control: no-cache",
+                "Host: btkitty.kim"})
+        @POST("http://btkitty.kim/")
         Call<ResponseBody> mainSearch(@Field("keyword") String keyword);
 
         @GET
@@ -137,6 +141,7 @@ public class RetrofitActivity extends AbstractActivity {
                     e.printStackTrace();
                 }
                 DpDebug.log("RetrofixActivity ---- runBTKitty ---- onResponse ---- body : " + body);
+                mTvResult.setText(body);
             }
 
             @Override
@@ -201,5 +206,30 @@ public class RetrofitActivity extends AbstractActivity {
                 DpDebug.log("RetrofixActivity ---- runBTKittyGetSync ---- body : " + body);
             }
         }).start();
+    }
+
+    private void runBTKittyPostSync() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                btKittyPost("girl");
+            }});
+    }
+
+    private String btKittyPost(String keyword) {
+        DpDebug.log("BTKittySearch ---- btKittyPost ---- keyword : " + keyword);
+        String body = null;
+        try {
+            Call<ResponseBody> call = mBTKittySearchApi.mainSearch(keyword);
+            Response<ResponseBody> bodyResponse = call.execute();
+            if (bodyResponse.body() == null) {
+                DpDebug.log("RetrofitActivity ---- btKittyPost ---- bodyResponse.body().string() : " + bodyResponse.body().string());
+                return body;
+            }
+            body = bodyResponse.body().string();//获取返回体的字符串
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return body;
     }
 }
