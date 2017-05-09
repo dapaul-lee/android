@@ -54,9 +54,9 @@ public class RetrofitActivity extends AbstractActivity {
         btKittyInit();
 //        run();
 //        runBTKittyAsync("girl");
-//        runBTKittySync("beauty girl");
+        runBTKittySync("beauty girl");
 //        runBTKittyGetAsync(BTKITTY_URL);
-        runBTKittyGetSync(BTKITTY_URL);
+//        runBTKittyGetSync(BTKITTY_URL);
     }
 
     private void run() {
@@ -109,8 +109,8 @@ public class RetrofitActivity extends AbstractActivity {
 
     public interface BTKittySearchApi {
         @FormUrlEncoded
-        @Headers({"User-Agent:Mozilla"})
-        @POST("http://btkitty.bid/")
+        @Headers({"User-Agent:Mozilla","Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"})
+        @POST("http://btkitty.kim/")
         Call<ResponseBody> mainSearch(@Field("keyword") String keyword);
 
         @GET

@@ -24,6 +24,9 @@ public class MainActivity extends AbstractActivity {
             case R.id.android_system:
                 switchToActivity(AndroidSystemActivity.class);
                 break;
+            case R.id.open_source_framework:
+                switchToActivity(OpenSourceFrameworkActivity.class);
+                break;
             case R.id.open_source_project:
                 switchToActivity(OpenSourceProjectActivity.class);
                 break;

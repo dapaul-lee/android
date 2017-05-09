@@ -28,7 +28,7 @@ import static android.opengl.GLES20.glShaderSource;
 import static android.opengl.GLES20.glValidateProgram;
 import android.util.Log;
 
-import com.dp.test.Config;
+import com.dp.test.config.Config;
 
 
 public class ShaderHelper {

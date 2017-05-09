@@ -16,14 +16,8 @@ public class OpenSourceProjectActivity extends AbstractActivity {
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.retrofit:
-                switchToActivity(RetrofitActivity.class);
-                break;
-            case R.id.rxjava:
-                switchToActivity(RxJavaActivity.class);
-                break;
-            case R.id.green_dao:
-                switchToActivity(GreenDAOActivity.class);
+            case R.id.jie_cao_video_player:
+                switchToActivity(JieCaoVideoPlayerActivity.class);
                 break;
         }
     }
