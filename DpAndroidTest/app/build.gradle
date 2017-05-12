@@ -45,5 +45,5 @@ dependencies {
     compile project(':jcvideoplayer-lib')
     //Picasso
     compile 'com.squareup.picasso:picasso:2.5.1'
-
+    compile project(':FlipView')
 }

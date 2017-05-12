@@ -18,6 +18,12 @@ public class CustomViewActivity extends AbstractActivity {
             case R.id.pull_to_refresh_layout:
                 switchToActivity(PullToRefreshLayoutActivity.class);
                 break;
+            case R.id.flip_view:
+                switchToActivity(FlipViewActivity.class);
+                break;
+            case R.id.indicator:
+                switchToActivity(IndicatorActivity.class);
+                break;
         }
     }
 }

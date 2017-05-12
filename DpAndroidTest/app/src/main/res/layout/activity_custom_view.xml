@@ -19,4 +19,20 @@
         android:padding="10dp"
         android:text="Pull to Refresh Layout" />
 
+    <TextView
+        android:id="@+id/flip_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="Flip View" />
+
+    <TextView
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="Indicator" />
+
 </LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="20dip" />
+    <solid android:color="#ff00ff" />
+    <size
+        android:width="@dimen/thumb_size_width"
+        android:height="@dimen/thumb_size_height" />
+</shape>

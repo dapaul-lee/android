@@ -93,6 +93,8 @@
             android:name=".ui.activity.JieCaoVideoPlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.FlipViewActivity" />
+        <activity android:name=".ui.activity.IndicatorActivity"></activity>
     </application>
 
 </manifest>
