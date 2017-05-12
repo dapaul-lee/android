@@ -54,6 +54,12 @@
             android:name=".ui.activity.OpenGLActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ui.activity.CustomViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PullToRefreshLayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.activity.OpenGlCamera2PreviewActivity"
             android:screenOrientation="portrait" />
         <activity
