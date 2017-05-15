@@ -74,4 +74,12 @@
         android:onClick="onClick"
         android:padding="10dp"
         android:text="Custom View" />
+
+    <TextView
+        android:id="@+id/function"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="Function" />
 </LinearLayout>

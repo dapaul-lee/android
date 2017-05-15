@@ -94,7 +94,10 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.FlipViewActivity" />
-        <activity android:name=".ui.activity.IndicatorActivity"></activity>
+        <activity android:name=".ui.activity.IndicatorActivity" />
+        <activity android:name=".ui.activity.FunctionActivity" />
+        <activity android:name=".ui.activity.ImageProcessActivity" />
+        <activity android:name=".ui.activity.ImageTransformationActivity"></activity>
     </application>
 
 </manifest>
