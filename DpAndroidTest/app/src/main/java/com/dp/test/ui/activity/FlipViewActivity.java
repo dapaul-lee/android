@@ -18,7 +18,7 @@ import se.emilsjolander.flipview.OverFlipMode;
 public class FlipViewActivity extends AbstractActivity implements FlipAdapter.Callback, FlipView.OnFlipListener, FlipView.OnOverFlipListener {
 
     private FlipView mFlipView;
-private FlipAdapter mAdapter;
+    private FlipAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
