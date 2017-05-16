@@ -53,8 +53,7 @@ public class RetrofitActivity extends AbstractActivity {
         mTvResult = (TextView) findViewById(R.id.tv_result);
         btKittyInit();
 //        run();
-        runBTKittyAsync("东京热");
-//        runBTKittySync("beauty girl");
+        runBTKittySync("beauty girl");
 //        runBTKittyGetAsync(BTKITTY_URL);
 //        runBTKittyGetSync(BTKITTY_URL);
 //        runBTKittyPostSync();

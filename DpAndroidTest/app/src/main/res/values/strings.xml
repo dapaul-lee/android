@@ -7,4 +7,6 @@
     <string name="bottom_pop_window_btn_cancel">Cancel</string>
 
     <string name="pull_to_refresh_layout_listview_footer_loading_text">加载中...</string>
+
+    <string name="image_edit_and_merge_save_path">save path : %s</string>
 </resources>

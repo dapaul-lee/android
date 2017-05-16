@@ -45,5 +45,8 @@ dependencies {
     compile project(':jcvideoplayer-lib')
     //Picasso
     compile 'com.squareup.picasso:picasso:2.5.1'
+    //Universal Image Loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
     compile project(':FlipView')
+    compile project(':imageeditlibrary')
 }

@@ -26,4 +26,12 @@
         android:onClick="onClick"
         android:padding="10dp"
         android:text="Turn Layout to Image" />
+
+    <TextView
+        android:id="@+id/image_edit_and_merge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="Image Edit and Merge" />
 </LinearLayout>
