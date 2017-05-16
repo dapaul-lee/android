@@ -19,6 +19,7 @@ import android.widget.ViewFlipper;
 import com.xinlan.imageeditlibrary.BaseActivity;
 import com.xinlan.imageeditlibrary.R;
 import com.xinlan.imageeditlibrary.editimage.EditImageActivity;
+import com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity;
 import com.xinlan.imageeditlibrary.editimage.adapter.StickerAdapter;
 import com.xinlan.imageeditlibrary.editimage.adapter.StickerTypeAdapter;
 import com.xinlan.imageeditlibrary.editimage.model.StickerBean;
@@ -120,7 +121,7 @@ public class StirckerFragment extends BaseEditFragment {
         activity.mode = EditImageActivity.MODE_STICKERS;
         activity.mStirckerFragment.getmStickerView().setVisibility(
                 View.VISIBLE);
-        activity.bannerFlipper.showNext();
+//        activity.bannerFlipper.showNext();
     }
 
     //导入贴图数据
@@ -250,7 +251,7 @@ public class StirckerFragment extends BaseEditFragment {
         activity.mode = EditImageActivity.MODE_NONE;
         activity.bottomGallery.setCurrentItem(0);
         mStickerView.setVisibility(View.GONE);
-        activity.bannerFlipper.showPrevious();
+//        activity.bannerFlipper.showPrevious();
     }
 
     /**
@@ -259,7 +260,7 @@ public class StirckerFragment extends BaseEditFragment {
      * @author panyi
      */
     private final class SaveStickersTask extends StickerTask {
-        public SaveStickersTask(EditImageActivity activity) {
+        public SaveStickersTask(ImageEditAndMergeActivity activity) {
             super(activity);
         }
 
@@ -288,7 +289,7 @@ public class StirckerFragment extends BaseEditFragment {
         if (mSaveTask != null) {
             mSaveTask.cancel(true);
         }
-        mSaveTask = new SaveStickersTask((EditImageActivity) getActivity());
+        mSaveTask = new SaveStickersTask((ImageEditAndMergeActivity) getActivity());
         mSaveTask.execute(activity.mainBitmap);
     }
 }// end class

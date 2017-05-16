@@ -23,6 +23,7 @@ import android.widget.ImageView;
 
 import com.xinlan.imageeditlibrary.R;
 import com.xinlan.imageeditlibrary.editimage.EditImageActivity;
+import com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity;
 import com.xinlan.imageeditlibrary.editimage.task.StickerTask;
 import com.xinlan.imageeditlibrary.editimage.ui.ColorPicker;
 import com.xinlan.imageeditlibrary.editimage.view.TextStickerView;
@@ -165,7 +166,7 @@ public class AddTextFragment extends BaseEditFragment implements TextWatcher {
         activity.mode = EditImageActivity.MODE_NONE;
         activity.bottomGallery.setCurrentItem(MainMenuFragment.INDEX);
         activity.mainImage.setVisibility(View.VISIBLE);
-        activity.bannerFlipper.showPrevious();
+//        activity.bannerFlipper.showPrevious();
         mTextStickerView.setVisibility(View.GONE);
     }
 
@@ -173,7 +174,7 @@ public class AddTextFragment extends BaseEditFragment implements TextWatcher {
     public void onShow() {
         activity.mode = EditImageActivity.MODE_TEXT;
         activity.mainImage.setImageBitmap(activity.mainBitmap);
-        activity.bannerFlipper.showNext();
+//        activity.bannerFlipper.showNext();
         mTextStickerView.setVisibility(View.VISIBLE);
         mInputText.clearFocus();
     }
@@ -197,7 +198,7 @@ public class AddTextFragment extends BaseEditFragment implements TextWatcher {
      */
     private final class SaveTextStickerTask extends StickerTask {
 
-        public SaveTextStickerTask(EditImageActivity activity) {
+        public SaveTextStickerTask(ImageEditAndMergeActivity activity) {
             super(activity);
         }
 

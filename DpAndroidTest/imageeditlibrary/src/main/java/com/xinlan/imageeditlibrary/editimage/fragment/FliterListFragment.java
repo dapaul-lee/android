@@ -85,7 +85,7 @@ import com.xinlan.imageeditlibrary.editimage.view.imagezoom.ImageViewTouchBase;
         activity.mainImage.setImageBitmap(activity.mainBitmap);
         activity.mainImage.setDisplayType(ImageViewTouchBase.DisplayType.FIT_TO_SCREEN);
         activity.mainImage.setScaleEnabled(false);
-        activity.bannerFlipper.showNext();
+//        activity.bannerFlipper.showNext();
     }
 
     /**
@@ -98,7 +98,7 @@ import com.xinlan.imageeditlibrary.editimage.view.imagezoom.ImageViewTouchBase;
         activity.mode = EditImageActivity.MODE_NONE;
         activity.bottomGallery.setCurrentItem(0);
         activity.mainImage.setScaleEnabled(true);
-        activity.bannerFlipper.showPrevious();
+//        activity.bannerFlipper.showPrevious();
     }
 
     /**

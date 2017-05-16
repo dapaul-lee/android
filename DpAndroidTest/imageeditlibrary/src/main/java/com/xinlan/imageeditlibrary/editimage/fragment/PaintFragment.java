@@ -20,6 +20,7 @@ import android.widget.SeekBar;
 
 import com.xinlan.imageeditlibrary.R;
 import com.xinlan.imageeditlibrary.editimage.EditImageActivity;
+import com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity;
 import com.xinlan.imageeditlibrary.editimage.adapter.ColorListAdapter;
 import com.xinlan.imageeditlibrary.editimage.task.StickerTask;
 import com.xinlan.imageeditlibrary.editimage.ui.ColorPicker;
@@ -132,7 +133,7 @@ public class PaintFragment extends BaseEditFragment implements View.OnClickListe
         activity.mode = EditImageActivity.MODE_NONE;
         activity.bottomGallery.setCurrentItem(MainMenuFragment.INDEX);
         activity.mainImage.setVisibility(View.VISIBLE);
-        activity.bannerFlipper.showPrevious();
+//        activity.bannerFlipper.showPrevious();
 
         this.mPaintView.setVisibility(View.GONE);
     }
@@ -140,7 +141,7 @@ public class PaintFragment extends BaseEditFragment implements View.OnClickListe
     public void onShow() {
         activity.mode = EditImageActivity.MODE_PAINT;
         activity.mainImage.setImageBitmap(activity.mainBitmap);
-        activity.bannerFlipper.showNext();
+//        activity.bannerFlipper.showNext();
         this.mPaintView.setVisibility(View.VISIBLE);
     }
 
@@ -274,7 +275,7 @@ public class PaintFragment extends BaseEditFragment implements View.OnClickListe
      */
     private final class SaveCustomPaintTask extends StickerTask {
 
-        public SaveCustomPaintTask(EditImageActivity activity) {
+        public SaveCustomPaintTask(ImageEditAndMergeActivity activity) {
             super(activity);
         }
 

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xinlan.imageeditlibrary.R;
-import com.xinlan.imageeditlibrary.editimage.EditImageActivity;
+import com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity;
 import com.xinlan.imageeditlibrary.editimage.view.imagezoom.ImageViewTouchBase;
 
 

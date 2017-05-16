@@ -36,9 +36,6 @@ public class AbstractActivity extends AppCompatActivity {
         }//end if
     }
 
-    /**
-     * ≥ı ºªØÕº∆¨‘ÿ»ÎøÚº‹
-     */
     private void initImageLoader() {
         File cacheDir = StorageUtils.getCacheDirectory(this);
         int MAXMEMONRY = (int) (Runtime.getRuntime().maxMemory());

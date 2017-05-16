@@ -10,6 +10,7 @@ import android.os.Build;
 
 import com.xinlan.imageeditlibrary.R;
 import com.xinlan.imageeditlibrary.editimage.EditImageActivity;
+import com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity;
 import com.xinlan.imageeditlibrary.editimage.utils.BitmapUtils;
 import com.xinlan.imageeditlibrary.editimage.utils.Matrix3;
 
@@ -21,9 +22,9 @@ import com.xinlan.imageeditlibrary.editimage.utils.Matrix3;
 public abstract class StickerTask extends AsyncTask<Bitmap, Void, Bitmap> {
     private Dialog dialog;
 
-    private EditImageActivity mContext;
+    private ImageEditAndMergeActivity mContext;
 
-    public StickerTask(EditImageActivity activity) {
+    public StickerTask(ImageEditAndMergeActivity activity) {
         this.mContext = activity;
     }
 

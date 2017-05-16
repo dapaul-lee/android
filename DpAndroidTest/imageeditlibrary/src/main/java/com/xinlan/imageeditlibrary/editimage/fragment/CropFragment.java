@@ -156,7 +156,7 @@ public class CropFragment extends BaseEditFragment {
         RectF r = activity.mainImage.getBitmapRect();
         activity.mCropPanel.setCropRect(r);
         // System.out.println(r.left + "    " + r.top);
-        activity.bannerFlipper.showNext();
+//        activity.bannerFlipper.showNext();
     }
 
     /**
@@ -184,7 +184,7 @@ public class CropFragment extends BaseEditFragment {
 			selctedTextView.setTextColor(UNSELECTED_COLOR);
 		}
 		mCropPanel.setRatioCropRect(activity.mainImage.getBitmapRect(), -1);
-		activity.bannerFlipper.showPrevious();
+//		activity.bannerFlipper.showPrevious();
 	}
 
 	/**

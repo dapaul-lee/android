@@ -22,7 +22,7 @@ public class ImageProcessActivity extends AbstractActivity {
                 switchToActivity(TurnLayoutToImageActivity.class);
                 break;
             case R.id.image_edit_and_merge:
-                switchToActivity(ImageEditAndMergeActivity.class);
+                switchToActivity(com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity.class);
                 break;
         }
     }

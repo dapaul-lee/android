@@ -1,4 +1,4 @@
-package com.dp.test.ui.activity;
+package com.xinlan.imageeditlibrary.editimage;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -17,13 +17,10 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
 
-import com.dp.test.R;
-import com.dp.test.debug.DpDebug;
-import com.xinlan.imageeditlibrary.editimage.EditImageActivity;
+import com.xinlan.imageeditlibrary.BaseActivity;
+import com.xinlan.imageeditlibrary.R;
 import com.xinlan.imageeditlibrary.editimage.fragment.AddTextFragment;
 import com.xinlan.imageeditlibrary.editimage.fragment.CropFragment;
 import com.xinlan.imageeditlibrary.editimage.fragment.FliterListFragment;
@@ -39,13 +36,22 @@ import com.xinlan.imageeditlibrary.editimage.view.RotateImageView;
 import com.xinlan.imageeditlibrary.editimage.view.StickerView;
 import com.xinlan.imageeditlibrary.editimage.view.TextStickerView;
 import com.xinlan.imageeditlibrary.editimage.view.imagezoom.ImageViewTouch;
+import com.xinlan.imageeditlibrary.editimage.view.imagezoom.ImageViewTouchBase;
 import com.xinlan.imageeditlibrary.picchooser.SelectPictureActivity;
 
-public class ImageEditAndMergeActivity extends AbstractActivity implements View.OnClickListener {
+public class ImageEditAndMergeActivity extends BaseActivity {
 
     public static final int REQUEST_PERMISSON_SORAGE = 1;
     public static final int SELECT_GALLERY_IMAGE_CODE = 7;
     public static final int ACTION_REQUEST_EDITIMAGE = 9;
+
+    public static final int MODE_NONE = 0;
+    public static final int MODE_STICKERS = 1;// 贴图模式
+    public static final int MODE_FILTER = 2;// 滤镜模式
+    public static final int MODE_CROP = 3;// 剪裁模式
+    public static final int MODE_ROTATE = 4;// 旋转模式
+    public static final int MODE_TEXT = 5;// 文字模式
+    public static final int MODE_PAINT = 6;//绘制模式
 
     private Context mContext;
 
@@ -53,9 +59,9 @@ public class ImageEditAndMergeActivity extends AbstractActivity implements View.
 
     private int imageWidth, imageHeight;//
 
-    private Bitmap mainBitmap;
+    public Bitmap mainBitmap;
 
-    private ImageViewTouch mMainImageView;
+    public ImageViewTouch mainImage;
 
 
     public StickerView mStickerView;// 贴图层View
@@ -75,14 +81,24 @@ public class ImageEditAndMergeActivity extends AbstractActivity implements View.
     public AddTextFragment mAddTextFragment;//图片添加文字
     public PaintFragment mPaintFragment;//绘制模式Fragment
 
+    public int mode = MODE_NONE;// 当前操作模式
+
+    protected int mOpTimes = 0;
+    protected boolean isBeenSaved = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_edit_and_merge);
 
-        findViewById(R.id.btn_choose_img).setOnClickListener(this);
-        findViewById(R.id.btn_save).setOnClickListener(this);
-        mMainImageView = (ImageViewTouch) findViewById(R.id.main_image);
+        findViewById(R.id.btn_choose_img).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectFromAblum();
+            }
+        });
+//        findViewById(R.id.btn_save).setOnClickListener(this);
+        mainImage = (ImageViewTouch) findViewById(R.id.main_image);
 
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         imageWidth = metrics.widthPixels;
@@ -114,7 +130,7 @@ public class ImageEditAndMergeActivity extends AbstractActivity implements View.
         bottomGallery.setAdapter(mBottomGalleryAdapter);
 
 
-        mMainImageView.setFlingListener(new ImageViewTouch.OnImageFlingListener() {
+        mainImage.setFlingListener(new ImageViewTouch.OnImageFlingListener() {
             @Override
             public void onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 //System.out.println(e1.getAction() + " " + e2.getAction() + " " + velocityX + "  " + velocityY);
@@ -123,6 +139,32 @@ public class ImageEditAndMergeActivity extends AbstractActivity implements View.
                 }
             }
         });
+    }
+
+    public void changeMainBitmap(Bitmap newBit) {
+        if (mainBitmap != null) {
+            if (!mainBitmap.isRecycled()) {// 回收
+                mainBitmap.recycle();
+            }
+        }
+        mainBitmap = newBit;
+        mainImage.setImageBitmap(mainBitmap);
+        mainImage.setDisplayType(ImageViewTouchBase.DisplayType.FIT_TO_SCREEN);
+
+        increaseOpTimes();
+    }
+
+    public void increaseOpTimes() {
+        mOpTimes++;
+        isBeenSaved = false;
+    }
+
+    public void resetOpTimes() {
+        isBeenSaved = true;
+    }
+
+    public boolean canAutoExit() {
+        return isBeenSaved || mOpTimes == 0;
     }
 
     private void closeInputMethod() {
@@ -157,7 +199,7 @@ public class ImageEditAndMergeActivity extends AbstractActivity implements View.
     private void handleSelectFromAblum(Intent data) {
         String filepath = data.getStringExtra("imgPath");
         path = filepath;
-        DpDebug.log("ImageEditAndMergeActivity ---- handleSelectFromAblum ---- path : " + path);
+        Log.i("ljq", "ImageEditAndMergeActivity ---- handleSelectFromAblum ---- path : " + path);
         // System.out.println("path---->"+path);
         startLoadTask();
     }
@@ -211,16 +253,16 @@ public class ImageEditAndMergeActivity extends AbstractActivity implements View.
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_choose_img:
-                selectFromAblum();
-                break;
-            case R.id.btn_save:
-                break;
-        }
-    }
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.btn_choose_img:
+//                selectFromAblum();
+//                break;
+//            case R.id.btn_save:
+//                break;
+//        }
+//    }
 
     private final class LoadImageTask extends AsyncTask<String, Void, Bitmap> {
         @Override
@@ -253,7 +295,7 @@ public class ImageEditAndMergeActivity extends AbstractActivity implements View.
                 System.gc();
             }
             mainBitmap = result;
-            mMainImageView.setImageBitmap(mainBitmap);
+            mainImage.setImageBitmap(mainBitmap);
         }
     }// end inner class
 

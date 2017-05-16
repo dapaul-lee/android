@@ -45,4 +45,6 @@
     <string name="exit_without_save">The edited image is not saved. Do you want to exit? </string>
     <string name="confirm">confirm</string>
     <string name="cancel">cancel</string>
+
+    <string name="image_edit_and_merge_save_path">save path : %s</string>
 </resources>

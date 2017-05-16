@@ -4,17 +4,18 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.xinlan.imageeditlibrary.editimage.EditImageActivity;
+import com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity;
 
 /**
  * Created by panyi on 2017/3/28.
  */
 
 public abstract class BaseEditFragment extends Fragment {
-    protected EditImageActivity activity;
+    protected ImageEditAndMergeActivity activity;
 
-    protected EditImageActivity ensureEditActivity(){
+    protected ImageEditAndMergeActivity ensureEditActivity(){
         if(activity==null){
-            activity = (EditImageActivity)getActivity();
+            activity = (ImageEditAndMergeActivity)getActivity();
         }
         return activity;
     }
