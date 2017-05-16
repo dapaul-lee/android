@@ -226,7 +226,7 @@ public class RetrofitActivity extends AbstractActivity {
                 DpDebug.log("RetrofitActivity ---- btKittyPost ---- bodyResponse.body().string() : " + bodyResponse.body().string());
                 return body;
             }
-            body = bodyResponse.body().string();//获取返回体的字符串
+            body = bodyResponse.body().string();
         } catch (IOException e) {
             e.printStackTrace();
         }

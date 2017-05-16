@@ -18,6 +18,9 @@ public class ImageProcessActivity extends AbstractActivity {
             case R.id.image_transformation:
                 switchToActivity(ImageTransformationActivity.class);
                 break;
+			case R.id.turn_layout_to_image:
+                switchToActivity(TurnLayoutToImageActivity.class);
+                break;
         }
     }
 }
