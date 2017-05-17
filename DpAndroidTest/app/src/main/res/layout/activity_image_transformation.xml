@@ -10,13 +10,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.dp.test.ui.activity.ImageTransformationActivity">
-
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Operations : zoom, rotate, move, excharge" />
     <FrameLayout
         android:id="@+id/rl_image_container_left"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@id/text"
         android:background="#ffffff">
 
         <com.dp.test.ui.view.TouchImageView
@@ -30,7 +35,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@id/text"
         android:background="#ffffff">
 
         <ImageView
@@ -39,14 +44,15 @@
             android:layout_height="match_parent" />
     </FrameLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Operations : zoom, rotate, move, excharge" />
-
-    <com.dp.test.ui.view.TouchImageView
+    <!--<com.dp.test.ui.view.TouchImageView
         android:id="@+id/iv_image_3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="300dp"
+        android:layout_height="300dp" />-->
+    <com.xinlan.imageeditlibrary.editimage.view.CropTouchImageView
+        android:id="@+id/iv_image_4"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/pic2"
+        android:layout_alignParentBottom="true"
+        />
 </RelativeLayout>

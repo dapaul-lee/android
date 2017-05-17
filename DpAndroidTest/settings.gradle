@@ -1,1 +1,1 @@
-include ':app', ':jcvideoplayer-lib', ':FlipView', ':imageeditlibrary'
+include ':app', ':jcvideoplayer-lib', ':FlipView', ':imageeditlibrary', ':clipimage'

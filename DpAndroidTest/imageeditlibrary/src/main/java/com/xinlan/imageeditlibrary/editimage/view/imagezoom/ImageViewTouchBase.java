@@ -23,8 +23,7 @@ import com.xinlan.imageeditlibrary.editimage.view.imagezoom.utils.IDisposable;
  *
  * @author alessandro
  */
-public abstract class ImageViewTouchBase extends ImageView implements
-        IDisposable {
+public abstract class ImageViewTouchBase extends ImageView implements IDisposable {
 
     public interface OnDrawableChangeListener {
 
@@ -78,7 +77,7 @@ public abstract class ImageViewTouchBase extends ImageView implements
     ;
 
     public static final String LOG_TAG = "ImageViewTouchBase";
-    protected static final boolean LOG_ENABLED = false;
+    protected static final boolean LOG_ENABLED = true;
 
     public static final float ZOOM_INVALID = -1f;
 

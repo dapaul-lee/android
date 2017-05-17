@@ -24,6 +24,9 @@ public class ImageProcessActivity extends AbstractActivity {
             case R.id.image_edit_and_merge:
                 switchToActivity(com.xinlan.imageeditlibrary.editimage.ImageEditAndMergeActivity.class);
                 break;
+            case R.id.image_crop:
+                switchToActivity(ImageCropActivity.class);
+                break;
         }
     }
 }
