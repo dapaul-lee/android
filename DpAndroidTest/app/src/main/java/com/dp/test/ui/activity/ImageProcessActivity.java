@@ -27,6 +27,9 @@ public class ImageProcessActivity extends AbstractActivity {
             case R.id.image_crop:
                 switchToActivity(ImageCropActivity.class);
                 break;
+            case R.id.image_draw:
+                switchToActivity(ImageDrawActivity.class);
+                break;
         }
     }
 }

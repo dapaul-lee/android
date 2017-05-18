@@ -1,6 +1,6 @@
 package com.githang.clipimage;
 
-import org.junit.Test;
+import org.junitIm.Test;
 
 import static org.junit.Assert.*;
 

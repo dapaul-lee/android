@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.dp.test.ui.activity.ImageCropActivity">
 
-    <com.githang.clipimage.ClipImageView
+    <com.dp.test.ui.view.CropImageView
         android:id="@+id/clip_image_view"
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="300dp" />
 
     <ImageView
