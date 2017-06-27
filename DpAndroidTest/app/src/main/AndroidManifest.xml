@@ -138,6 +138,9 @@
         <activity
             android:name=".ui.activity.DragToSortActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PicassoActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
