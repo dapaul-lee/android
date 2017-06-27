@@ -24,6 +24,9 @@ public class CustomViewActivity extends AbstractActivity {
             case R.id.indicator:
                 switchToActivity(IndicatorActivity.class);
                 break;
+            case R.id.drag_to_sort_recycle_view:
+                switchToActivity(DragToSortActivity.class);
+                break;
         }
     }
 }
