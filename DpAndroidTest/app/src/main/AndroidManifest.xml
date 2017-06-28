@@ -141,6 +141,7 @@
         <activity
             android:name=".ui.activity.PicassoActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.NestedListViewActivity"></activity>
     </application>
 
 </manifest>

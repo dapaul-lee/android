@@ -27,6 +27,9 @@ public class CustomViewActivity extends AbstractActivity {
             case R.id.drag_to_sort_recycle_view:
                 switchToActivity(DragToSortActivity.class);
                 break;
+            case R.id.nested_list_view:
+                switchToActivity(NestedListViewActivity.class);
+                break;
         }
     }
 }
