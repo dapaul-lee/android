@@ -21,6 +21,9 @@ public class MainActivity extends AbstractActivity {
             case R.id.android_native_component:
                 switchToActivity(NativeComponentActivity.class);
                 break;
+            case R.id.java_system:
+                switchToActivity(JavaSystemActivity.class);
+                break;
             case R.id.android_system:
                 switchToActivity(AndroidSystemActivity.class);
                 break;

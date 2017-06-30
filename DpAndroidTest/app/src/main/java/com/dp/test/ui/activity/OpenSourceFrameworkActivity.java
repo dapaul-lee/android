@@ -28,6 +28,9 @@ public class OpenSourceFrameworkActivity extends AbstractActivity {
             case R.id.green_dao:
                 switchToActivity(GreenDAOActivity.class);
                 break;
+            case R.id.realm:
+                switchToActivity(RealmActivity.class);
+                break;
             case R.id.picasso:
                 switchToActivity(PicassoActivity.class);
                 break;

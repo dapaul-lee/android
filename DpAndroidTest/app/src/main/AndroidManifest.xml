@@ -141,7 +141,10 @@
         <activity
             android:name=".ui.activity.PicassoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.NestedListViewActivity"></activity>
+        <activity android:name=".ui.activity.NestedListViewActivity" />
+        <activity android:name=".ui.activity.RealmActivity" />
+        <activity android:name=".ui.activity.JavaSystemActivity" />
+        <activity android:name=".ui.activity.TimeFormatActivity"></activity>
     </application>
 
 </manifest>
